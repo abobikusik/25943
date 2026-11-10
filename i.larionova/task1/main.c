@@ -12,7 +12,7 @@ extern char **environ;
 static void print_fsize_limit(void)
 {
     struct rlimit lim;
-    if (getrlimit(RLIMIT_FSIZE, &lim) == -1) // ← Поменяй RLIMIT_NPROC на RLIMIT_FSIZE
+    if (getrlimit(RLIMIT_FSIZE, &lim) == -1) 
     {
         fprintf(stderr, "ulimit reading error: %s\n", strerror(errno));
         return;
@@ -27,7 +27,7 @@ static void set_fsize_limit(long new_soft_ulimit)
 {
     struct rlimit lim;
 
-    if (getrlimit(RLIMIT_FSIZE, &lim) == -1) // ← Поменяй RLIMIT_NPROC на RLIMIT_FSIZE
+    if (getrlimit(RLIMIT_FSIZE, &lim) == -1) 
     {
         fprintf(stderr, "ulimit reading error: %s\n", strerror(errno));
         return;
@@ -42,7 +42,7 @@ static void set_fsize_limit(long new_soft_ulimit)
 
     lim.rlim_cur = (rlim_t)new_soft_ulimit;
 
-    if (setrlimit(RLIMIT_FSIZE, &lim) == -1) // ← Поменяй RLIMIT_NPROC на RLIMIT_FSIZE
+    if (setrlimit(RLIMIT_FSIZE, &lim) == -1) 
     {
         fprintf(stderr, "Error changing ulimit: %s\n", strerror(errno));
         return;
@@ -122,7 +122,8 @@ int  main(int argc, char *argv[])
     printf("argc equals %d\n", argc);
     
     // ПЕРЕВОРАЧИВАЕМ argv[1..argc-1], чтобы getopt шёл справа налево
-    for (int i = 1, j = argc - 1; i < j; i++, j--) {
+    for (int i = 1, j = argc - 1; i < j; i++, j--) 
+    {
         char *tmp = argv[i];
         argv[i] = argv[j];
         argv[j] = tmp;
