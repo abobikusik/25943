@@ -107,7 +107,7 @@ static void set_env_var(char *arg)
     char *eq = strchr(arg, '=');
     if (eq == NULL) 
     {
-        fprintf(stderr, "-V требует формат name=value\n");
+        fprintf(stderr, "-V требует формат name=value \n");
         return;
     }
     *eq = '\0';
@@ -174,5 +174,7 @@ int  main(int argc, char *argv[])
                 fprintf(stderr, "неизвестная опция: -%c\n", optopt);
                 return 1;
         }
+
     }
+
 }
