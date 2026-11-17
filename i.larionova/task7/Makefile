@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=gnu11
 TARGET = task7
 SRC = main.c
-FILE ?= file.txt
+FILE = file.txt
 
 .PHONY: all run clean
 
